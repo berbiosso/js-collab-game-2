@@ -24,14 +24,39 @@
         Napraw zasilanie i dotrzyj do wyjścia.
     </p>
 
-    <h2>Mapa</h2>
+    <h2>Mapa i Zadania</h2>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th>NR POKOJU</th>
+                <th>NAZWA POKOJU</th>
+                <th>CO MUSISZ ZROBIĆ/ZNALEŹĆ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Magazyn / Biuro</td>
+                <td>Znajdź kartę dostępu oraz latarkę.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Warsztat / Składzik</td>
+                <td>Znajdź i zabierz bezpiecznik.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pokój Techniczny</td>
+                <td>Użyj latarki i bezpiecznika, aby naprawić zasilanie.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Wyjście Ewakuacyjne</td>
+                <td>Użyj karty i włączonego zasilania, aby uciec i wygrać.</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <ol>
-        <li>Pokój 1 – karta i latarka.</li>
-        <li>Pokój 2 – bezpiecznik.</li>
-        <li>Pokój 3 – naprawa zasilania.</li>
-        <li>Pokój 4 – wyjście.</li>
-    </ol>
 
     <h2>Jak grać?</h2>
 
@@ -44,7 +69,7 @@
 
     <ul>
         <li>gra.status()</li>
-        <li>gra.ruch(2)</li>
+        <li>gra.ruch(NR_POKOJU)</li>
         <li>gra.wezKarte()</li>
         <li>gra.wezLatarke()</li>
         <li>gra.wezBezpiecznik()</li>
