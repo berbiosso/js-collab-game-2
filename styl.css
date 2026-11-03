@@ -16,7 +16,7 @@ td{
     padding: 10px;
 }
 
-body {
+td {
     background-color: #53524e; /* Twój bazowy kolor tła */
     background-image: 
         radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
