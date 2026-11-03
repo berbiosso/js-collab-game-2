@@ -1,0 +1,17 @@
+===============================
+ABY WYGRAĆ GRĘ TRZEBA WPISAĆ:
+===============================
+ gra.reset(); gra.wezKarte(); gra.wezLatarke(); gra.ruch(2); gra.wezBezpiecznik(); gra.ruch(3); gra.napraw(); gra.ruch(4); gra.wyjdz(); gra.status();
+
+---------------------------------------------------------------------------
+
+==============================
+TEST NA ODMOWĘ LATARKI: 
+==============================
+gra.reset(); gra.wezKarte(); gra.ruch(2); gra.wezBezpiecznik(); gra.ruch(3); gra.napraw();
+---------------------------------------------------------------------------
+
+==============================
+TEST NA STRATĘ ENERGII: 
+==============================
+gra.reset(); gra.ruch(2); gra.ruch(1); gra.ruch(2); gra.ruch(1); gra.ruch(2); gra.ruch(1); gra.ruch(2); gra.ruch(1); gra.ruch(2); gra.ruch(1); gra.status();
