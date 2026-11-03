@@ -12,21 +12,37 @@
 Wystarczy kilka zdań. Nie oceniamy długości dokumentu ani popularności autora pomysłu.
 
 =================================================
-# Decyzje Architektoniczne
+# DECYZJE
 
-## Wybrany Kontrakt Stanu Gry
-Wersja zapisu: "1.0.0"
-Obiekt stanu zawiera pola:
-- pokoj (number, zakres 1-4)
-- energia (number, zakres 0-10)
-- karta (boolean)
-- bezpiecznik (boolean)
-- zasilanie (boolean)
-- koniec (boolean)
-- wersja (string)
+## Wybrany sposób działania
+
+Gra ma 4 pokoje.
+
+Gracz posiada:
+- energię,
+- kartę,
+- latarkę,
+- bezpiecznik,
+- informację o zasilaniu.
+
+Funkcja przejscie() odpowiada za zasady gry.
+
+Funkcja czyStan() sprawdza poprawność stanu.
+
+Odmowa nie zmienia stanu i nie zabiera energii.
+
+Zapis gry ma format JSON z wersją 1.
+
+## Dodatkowa funkcja
+
+Dodaliśmy latarkę.
+
+Latarka znajduje się w pokoju 1.
+Jest potrzebna do naprawy zasilania w pokoju 3.
 
 ## Alternatywa
-Przechowywanie przedmiotów w tablicy `ekwipunek: ["karta"]`.
 
-## Powód wyboru
-Wersja z osobnymi polami boolean (karta: false/true) jest łatwiejsza do głębokiej walidacji typów bez używania pętli i metod tablicowych, co przyspieszy działanie silnika w czystym JS.
+Mogliśmy zrobić grę bez latarki.
+
+Wybraliśmy latarkę, ponieważ dodaje
+jedną prostą zasadę i urozmaica grę.
