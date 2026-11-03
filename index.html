@@ -1,17 +1,62 @@
 
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gra tekstowa</title>
 
-  <script src="./engine.js" defer></script>
-  <script src="./app.js" defer></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ucieczka z budynku</title>
+
+    <script src="./engine.js" defer></script>
+    <script src="./app.js" defer></script>
 </head>
+
 <body>
-  <h1>Gra tekstowa</h1>
-  <p>Otwórz konsolę przeglądarki klawiszem F12.</p>
-  <p>W konsoli wpisz <code>gra.status()</code>, aby sprawdzić stan.</p>
+
+    <h1>Ucieczka z budynku</h1>
+
+    <h2>Cel gry</h2>
+
+    <p>
+        Musisz uciec z budynku!
+        Znajdź kartę, latarkę i bezpiecznik.
+        Napraw zasilanie i dotrzyj do wyjścia.
+    </p>
+
+    <h2>Mapa</h2>
+
+    <ol>
+        <li>Pokój 1 – karta i latarka.</li>
+        <li>Pokój 2 – bezpiecznik.</li>
+        <li>Pokój 3 – naprawa zasilania.</li>
+        <li>Pokój 4 – wyjście.</li>
+    </ol>
+
+    <h2>Jak grać?</h2>
+
+    <p>
+        Otwórz konsolę klawiszem F12.
+        Wybierz zakładkę Console i wpisuj komendy.
+    </p>
+
+    <h2>Dostępne komendy</h2>
+
+    <ul>
+        <li>gra.status()</li>
+        <li>gra.ruch(2)</li>
+        <li>gra.wezKarte()</li>
+        <li>gra.wezLatarke()</li>
+        <li>gra.wezBezpiecznik()</li>
+        <li>gra.napraw()</li>
+        <li>gra.wyjdz()</li>
+        <li>gra.reset()</li>
+        <li>gra.eksportuj()</li>
+    </ul>
+
+    <p>
+        Powodzenia!
+    </p>
+
 </body>
 </html>
