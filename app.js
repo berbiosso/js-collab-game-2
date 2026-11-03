@@ -1,92 +1,115 @@
-
 let stan = stanPoczatkowy();
-
-
-function przetworzWynik(wynik) {
-  if (wynik && wynik.stan !== undefined) {
+ 
+function wykonaj(komenda) {
+    const wynik = przejscie(stan, komenda);
+ 
     stan = wynik.stan;
-  }
-  if (wynik && wynik.komunikat) {
+ 
     console.log(wynik.komunikat);
-  }
-  return stan;
+    console.log(stan);
+ 
+    return wynik;
 }
-
-window.gra = {
-  idz: function(kierunek) {
-    const wynik = przejscie(stan, { typ: "ruch", kierunek: kierunek });
-    return przetworzWynik(wynik);
-  },
-
-  akcja: function(co) {
-    const wynik = przejscie(stan, { typ: "akcja", co: co });
-    return przetworzWynik(wynik);
-  },
-
-  status: function() {
-    console.log("=== AKTUALNY STAN GRY ===");
+ 
+function ruch(cel) {
+    return wykonaj({ typ: "ruch", cel });
+}
+ 
+function wezKarte() {
+    return wykonaj({ typ: "wezKarte" });
+}
+ 
+function wezLatarke() {
+    return wykonaj({ typ: "wezLatarke" });
+}
+ 
+function wezBezpiecznik() {
+    return wykonaj({ typ: "wezBezpiecznik" });
+}
+ 
+function napraw() {
+    return wykonaj({ typ: "napraw" });
+}
+ 
+function wyjdz() {
+    return wykonaj({ typ: "wyjdz" });
+}
+ 
+function status() {
     console.log(stan);
     return stan;
-  },
-
-  mapa: function() {
-    console.log("=== MAPA POKOJÓW ===");
-    if (typeof pokoje !== "undefined") {
-      console.table(pokoje);
-    } else {
-      console.log("Kolekcja pokojów niedostępna.");
-    }
-    return stan;
-  },
-
-  start: function() {
+}
+ 
+function reset() {
     stan = stanPoczatkowy();
-    console.log("Rozpoczęto nową grę.");
+ 
+    console.log("Gra rozpoczęta od nowa!");
+ 
     return stan;
-  },
-
-  eksportuj: function() {
-    const pakiet = {
-      wersja: 1,
-      stan: stan
-    };
-    const jsonTekst = JSON.stringify(pakiet);
-    console.log(jsonTekst);
-    return jsonTekst;
-  },
-
-  importuj: function(tekst) {
+}
+ 
+function eksportuj() {
+    return JSON.stringify({
+        wersja: 1,
+        stan: stan
+    });
+}
+ 
+function importuj(tekst) {
     if (typeof tekst !== "string" || tekst.trim() === "") {
-      console.log("Błąd: Przekazano pusty tekst lub anulowano operację.");
-      return false;
+        console.log("Błędny tekst.");
+        return false;
     }
-
-    let sparsowane;
+ 
     try {
-      sparsowane = JSON.parse(tekst);
-    } catch (e) {
-      console.log("Błąd: Niepoprawna składnia JSON.");
-      return false;
+        const dane = JSON.parse(tekst);
+ 
+        if (!dane || typeof dane !== "object" ||
+            Array.isArray(dane) ||
+            dane.wersja !== 1 ||
+            !czyStan(dane.stan)) {
+ 
+            console.log("Nieprawidłowy zapis.");
+            return false;
+        }
+ 
+        const s = dane.stan;
+ 
+        stan = {
+            pokoj: s.pokoj,
+            energia: s.energia,
+            karta: s.karta,
+            latarka: s.latarka,
+            bezpiecznik: s.bezpiecznik,
+            kartaPobrana: s.kartaPobrana,
+            latarkaPobrana: s.latarkaPobrana,
+            bezpiecznikPobrany: s.bezpiecznikPobrany,
+            bezpiecznikZamontowany: s.bezpiecznikZamontowany,
+            zasilanie: s.zasilanie,
+            zakonczona: s.zakonczona,
+            wynik: s.wynik
+        };
+ 
+        console.log("Zapis wczytany!");
+        return true;
+ 
+    } catch (blad) {
+        console.log("Błąd JSON:", blad.message);
+        return false;
     }
-
-
-    if (typeof czyPoprawnyPakiet === "function" && !czyPoprawnyPakiet(sparsowane)) {
-      console.log("Błąd: Dane nie przeszły walidacji (niepoprawna wersja, typy lub reguły stanu).");
-      return false;
-    }
-
-   
-    stan = {
-      pokoj: Number(sparsowane.stan.pokoj),
-      energia: Number(sparsowane.stan.energia),
-      karta: Boolean(sparsowane.stan.karta),
-      bezpiecznik: Boolean(sparsowane.stan.bezpiecznik),
-      zasilanie: Boolean(sparsowane.stan.zasilanie),
-      koniec: Boolean(sparsowane.stan.koniec),
-      wygrana: Boolean(sparsowane.stan.wygrana)
-    };
-
-    console.log("Sukces: Pomyślnie zaimportowano stan gry.");
-    return true;
-  }
+}
+ 
+window.gra = {
+    ruch,
+    wezKarte,
+    wezLatarke,
+    wezBezpiecznik,
+    napraw,
+    wyjdz,
+    status,
+    reset,
+    eksportuj,
+    importuj
 };
+ 
+console.log("Gra uruchomiona!");
