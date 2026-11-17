@@ -46,3 +46,9 @@ Mogliśmy zrobić grę bez latarki.
 
 Wybraliśmy latarkę, ponieważ dodaje
 jedną prostą zasadę i urozmaica grę.
+
+## Easter Egg
+
+Dodaliśmy easter egg'a w postaci tańca,
+aby go odpalic trzeba w konsoli wpisać
+funkcję gra.griddy()

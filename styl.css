@@ -72,3 +72,9 @@ body {
     margin: 0;
     padding: 20px;
 }
+
+#powodzenia {
+    background-color: #03ffb8;
+    padding: 10px;
+    text-align: center;
+}
