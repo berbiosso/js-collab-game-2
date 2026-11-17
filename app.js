@@ -99,15 +99,17 @@ function importuj(tekst) {
     }
 }
 function griddy() {
-    console.log("%c  o/  \n /|   \n / \\  ", "color: #00aa00; font-family: monospace; font-size: 16px;");
+    setTimeout(() => {
+        console.log("%c  o/  \n /|   \n / \\  ", "color: #00aa00; font-family: monospace; font-size: 16px;");
+    }, 100);
 
-     setTimeout(() => {
+    setTimeout(() => {
         console.log(
             "%c  \\o  \n   |\\ \n  / \\ \n%c🕺 Brawo, zatańczyłeś griddy!",
             "color: #00aa00; font-family: monospace; font-size: 16px;",
             "color: #ff00ff; font-size: 18px; font-weight: bold;"
         );
-    }, 400);
+    }, 500);
 
     return "Taniec rozpoczęty...";
 }
