@@ -14,6 +14,7 @@ td{
 #komendy{
     background-color: #03ffb8;
     padding: 10px;
+    list-style-type: none;
 }
 
 td {
