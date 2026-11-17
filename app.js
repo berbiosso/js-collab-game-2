@@ -101,7 +101,7 @@ function importuj(tekst) {
 function griddy() {
     setTimeout(() => {
         console.log("%c  o/  \n /|   \n / \\  ", "color: #00aa00; font-family: monospace; font-size: 16px;");
-    }, 100);
+    }, 250);
 
     setTimeout(() => {
         console.log(
