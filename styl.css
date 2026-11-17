@@ -78,3 +78,6 @@ body {
     padding: 10px;
     text-align: center;
 }
+#powodzenia h2 {
+  background-color: transparent;
+}
