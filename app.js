@@ -101,7 +101,7 @@ function importuj(tekst) {
 function griddy() {
     setTimeout(() => {
         console.log("%c  o/  \n /|   \n / \\  ", "color: #00aa00; font-family: monospace; font-size: 16px;");
-    }, 250);
+    }, 500);
 
     setTimeout(() => {
         console.log(
@@ -109,7 +109,7 @@ function griddy() {
             "color: #00aa00; font-family: monospace; font-size: 16px;",
             "color: #ff00ff; font-size: 18px; font-weight: bold;"
         );
-    }, 500);
+    }, 1000);
 
     return "Taniec rozpoczęty...";
 }
